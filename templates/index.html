@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Client</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js" integrity="sha512-luMnTJZ7oEchNDZAtQhgjomP1eZefnl82ruTH/3Oj/Yu5qYtwL7+dVRccACS/Snp1lFXq188XFipHKYE75IaQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+
+  <div id="messages">
+
+  </div>
+
+  <form action="">
+    <input type="text" id="username", placeholder="Username">
+    <input type="text" id="message", placeholder="Message">
+    <button type="submit" id="sendBtn">Send</button>
+  </form>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      
+      var socket = io.connect("http://localhost:5000");
+      
+      socket.on("connect", function() {
+        console.log("User connected!");
+      });
+      
+      socket.on("message", function(data) {
+        console.log(data);
+        $("#messages").append("<p>" + data + "</p>");
+      });
+      
+      $("#sendBtn").click(function(e) {
+        e.preventDefault();
+        var username = $("#username").val();
+        var message = $("#message").val();
+
+        if (username == "" || message == "") {
+          alert("Please enter a username and message!");
+          return;
+        }
+
+        socket.send(username + ": " + message);
+        $("#message").val("");
+      });
+
+    })
+  </script>
+  
+</body>
+</html>
