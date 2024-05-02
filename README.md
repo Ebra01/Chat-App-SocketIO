@@ -14,9 +14,9 @@ pip install -r requirements.txt
 
 1. After installing the required libraries, you can run the application using the following command:
 
-`
-python3 main.py
-`
+  `
+  python3 main.py
+  `
 
 2. Once the application is running, open your web browser and navigate to `http://127.0.0.1:5000`.
 
