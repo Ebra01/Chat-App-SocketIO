@@ -6,7 +6,7 @@ This is a simple chat application demo built using Socket.IO. It allows users to
 
 To install the required libraries, run the following command:
 
-`cmd
+`
 pip install -r requirements.txt
 `
 
@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 1. After installing the required libraries, you can run the application using the following command:
 
-`cmd
+`
 python3 main.py
 `
 
