@@ -23,3 +23,7 @@ python3 main.py
 3. Open two instances of the application in separate browser tabs or windows.
 
 4. Start chatting! You should see messages appear in real-time across both instances of the application.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
